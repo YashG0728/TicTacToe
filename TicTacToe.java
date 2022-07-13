@@ -6,12 +6,12 @@ public class TicTacToe {
     static char userLetter;
     static char computerLetter;
 
-    public static void main(String[] args) {
-		
-	createEmptyBoard();
-	chooseLetter();
-	showBoard();
-	makeMove();
+    public static void main(String[] args)
+    {
+        createEmptyBoard();
+        chooseLetter();
+        showBoard();
+        makeMove();
     }
     private static void createEmptyBoard()
     {
@@ -55,6 +55,7 @@ public class TicTacToe {
             board[position] = userLetter;
             showBoard();
             checkFreeSpace();
+            winner();
             makeMove();
         }
 
@@ -94,5 +95,17 @@ public class TicTacToe {
             System.out.println("User starts to play first");
         }
     }
+    private static void winner()
+    {
+        if ((board[1] == userLetter && board[2] == userLetter && board[3] == userLetter) ||
+                (board[4] == userLetter && board[5] == userLetter && board[6] == userLetter) ||
+                (board[7] == userLetter && board[8] == userLetter && board[9] == userLetter) ||
+                (board[1] == userLetter && board[5] == userLetter && board[9] == userLetter) ||
+                (board[3] == userLetter && board[5] == userLetter && board[7] == userLetter))
+        {
+            showBoard();
+            System.out.println("Player win the game");
+            System.exit(0);
+        }
+    }
 }
-
